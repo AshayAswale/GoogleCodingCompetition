@@ -39,11 +39,20 @@ bool rowcolFiller(std::vector<std::vector<int>> &latin_square, int iter_col, int
     {
       if (isValidNum(latin_square, i, iter_col, num, N))
       {
-        if (N != 3 && N != 2 && num == latin_square.at(iter_col).at(i) && i == N - 1 && iter_col == 0)
+        if (num == latin_square.at(iter_col).at(N - 1) && i == N - 1)
           continue;
         latin_square.at(i).at(iter_col) = num;
         col_possible = true;
         break;
+      }
+    }
+    if (!col_possible)
+    {
+      int num = latin_square.at(iter_col).at(N - 1);
+      if (isValidNum(latin_square, i, iter_col, num, N))
+      {
+        latin_square.at(i).at(iter_col) = num;
+        col_possible = true;
       }
     }
     if (!row_possible || !col_possible)
