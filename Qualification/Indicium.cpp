@@ -126,7 +126,8 @@ int main()
       latin_square.at(i).assign(N, 0);
     }
 
-    getFirstSum(sums, N, K);
+    // getFirstSum(sums, N, K);
+    sums = {1, 4, 4, 3, 4};
     if (makeLatinSquare(sums, latin_square))
     {
       std::cout << "Case #" << t + 1 << ": "
